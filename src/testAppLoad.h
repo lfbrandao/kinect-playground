@@ -1,11 +1,11 @@
-#ifndef _TEST_APP_LOAD
-#define _TEST_APP_LOAD
+#pragma once
 
 //#define USE_IR // Uncomment this to use infra red instead of RGB cam...
 
 #include "ofxOpenNI.h"
 #include "ofMain.h"
 #include "kinectController.h"
+#include "imageLayer.h"
 
 class testAppLoad : public ofBaseApp{
 
@@ -22,6 +22,6 @@ public:
     int imgCurrWidth, imgCurrHeight;
     float imgCurrX, imgCurrY;
     float zoomPercentage;
-};
+    
 
-#endif
+};

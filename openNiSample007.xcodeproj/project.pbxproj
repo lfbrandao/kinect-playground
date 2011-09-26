@@ -34,6 +34,11 @@
 		C10BF8DE142ABDDC00AFD72E /* libXnVHandGenerator_1_3_1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C10BF8CF142ABDDB00AFD72E /* libXnVHandGenerator_1_3_1.dylib */; };
 		C10BF8DF142ABDDC00AFD72E /* libXnVNite_1_3_1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C10BF8D0142ABDDB00AFD72E /* libXnVNite_1_3_1.dylib */; };
 		C10BF937142AF36000AFD72E /* testAppLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C10BF935142AF36000AFD72E /* testAppLoad.cpp */; };
+		C116B4051430E5EA00995850 /* kinectZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C116B4031430E5EA00995850 /* kinectZone.cpp */; };
+		C1B95D7F142EB8D5003A4570 /* imageRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B95D7D142EB8D5003A4570 /* imageRegion.cpp */; };
+		C1B95D84142EBA3F003A4570 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B95D82142EBA3F003A4570 /* utils.cpp */; };
+		C1B95D97142ED2B3003A4570 /* imageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B95D8F142ED2B3003A4570 /* imageLayer.cpp */; };
+		C1B95D9F142EF620003A4570 /* testNewZoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B95D9D142EF620003A4570 /* testNewZoom.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -249,6 +254,16 @@
 		C10BF8D1142ABDDB00AFD72E /* XnVNite.net_1_3_1.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = XnVNite.net_1_3_1.dll; sourceTree = "<group>"; };
 		C10BF935142AF36000AFD72E /* testAppLoad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testAppLoad.cpp; sourceTree = "<group>"; };
 		C10BF936142AF36000AFD72E /* testAppLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAppLoad.h; sourceTree = "<group>"; };
+		C116B4031430E5EA00995850 /* kinectZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kinectZone.cpp; sourceTree = "<group>"; };
+		C116B4041430E5EA00995850 /* kinectZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kinectZone.h; sourceTree = "<group>"; };
+		C1B95D7D142EB8D5003A4570 /* imageRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageRegion.cpp; sourceTree = "<group>"; };
+		C1B95D7E142EB8D5003A4570 /* imageRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageRegion.h; sourceTree = "<group>"; };
+		C1B95D82142EBA3F003A4570 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
+		C1B95D83142EBA3F003A4570 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		C1B95D8F142ED2B3003A4570 /* imageLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageLayer.cpp; sourceTree = "<group>"; };
+		C1B95D90142ED2B3003A4570 /* imageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageLayer.h; sourceTree = "<group>"; };
+		C1B95D9D142EF620003A4570 /* testNewZoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testNewZoom.cpp; sourceTree = "<group>"; };
+		C1B95D9E142EF620003A4570 /* testNewZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testNewZoom.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -262,7 +277,7 @@
 		E4B69B5B0A3A1756003C02F2 /* openNISample007Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openNISample007Debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* kinectController.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = kinectController.cpp; path = src/kinectController.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1F0A3A1BDC003C02F2 /* kinectController.h */ = {isa = PBXFileReference; fileEncoding = 30; name = kinectController.h; path = src/kinectController.h; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* kinectController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = kinectController.h; path = src/kinectController.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -598,6 +613,59 @@
 			path = bin/data/openni/lib;
 			sourceTree = "<group>";
 		};
+		C116B4021430E5EA00995850 /* kinect */ = {
+			isa = PBXGroup;
+			children = (
+				C116B4031430E5EA00995850 /* kinectZone.cpp */,
+				C116B4041430E5EA00995850 /* kinectZone.h */,
+			);
+			path = kinect;
+			sourceTree = "<group>";
+		};
+		C1B95D7C142EB8D5003A4570 /* zoom */ = {
+			isa = PBXGroup;
+			children = (
+				C1B95D7D142EB8D5003A4570 /* imageRegion.cpp */,
+				C1B95D7E142EB8D5003A4570 /* imageRegion.h */,
+			);
+			path = zoom;
+			sourceTree = "<group>";
+		};
+		C1B95D81142EBA3F003A4570 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				C1B95D82142EBA3F003A4570 /* utils.cpp */,
+				C1B95D83142EBA3F003A4570 /* utils.h */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		C1B95D8A142ED2B3003A4570 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				C1B95D8E142ED2B3003A4570 /* image */,
+			);
+			path = layers;
+			sourceTree = "<group>";
+		};
+		C1B95D8E142ED2B3003A4570 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				C1B95D8F142ED2B3003A4570 /* imageLayer.cpp */,
+				C1B95D90142ED2B3003A4570 /* imageLayer.h */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		C1B95D9C142EF620003A4570 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				C1B95D9D142EF620003A4570 /* testNewZoom.cpp */,
+				C1B95D9E142EF620003A4570 /* testNewZoom.h */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		E4328144138ABC890047C5CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,6 +697,11 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C116B4021430E5EA00995850 /* kinect */,
+				C1B95D9C142EF620003A4570 /* test */,
+				C1B95D8A142ED2B3003A4570 /* layers */,
+				C1B95D81142EBA3F003A4570 /* shared */,
+				C1B95D7C142EB8D5003A4570 /* zoom */,
 				C10BF935142AF36000AFD72E /* testAppLoad.cpp */,
 				C10BF936142AF36000AFD72E /* testAppLoad.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -747,6 +820,11 @@
 				7786B09913C851BF00769F2B /* ofxTrackedUser.cpp in Sources */,
 				7786B09A13C851BF00769F2B /* ofxUserGenerator.cpp in Sources */,
 				C10BF937142AF36000AFD72E /* testAppLoad.cpp in Sources */,
+				C1B95D7F142EB8D5003A4570 /* imageRegion.cpp in Sources */,
+				C1B95D84142EBA3F003A4570 /* utils.cpp in Sources */,
+				C1B95D97142ED2B3003A4570 /* imageLayer.cpp in Sources */,
+				C1B95D9F142EF620003A4570 /* testNewZoom.cpp in Sources */,
+				C116B4051430E5EA00995850 /* kinectZone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

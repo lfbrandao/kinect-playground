@@ -6,6 +6,7 @@
 #include "ofxOpenNI.h"
 #include "ofMain.h"
 
+
 class kinectController{
 
 public:
@@ -50,6 +51,8 @@ public:
 
     XnPoint3D position;
     bool tracking;
+    
+    ofTrueTypeFont      myFont;
 };
 
 #endif

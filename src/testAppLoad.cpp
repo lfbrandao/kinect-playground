@@ -3,11 +3,15 @@
 //--------------------------------------------------------------
 void testAppLoad::setup() 
 {
-    img.loadImage("/Users/luisbrandao/Dropbox/body/walking for aclx/interfaceDSCF0041.JPG");
+    img.loadImage("/Users/luisbrandao/Desktop/walking for aclx/interfaceDSCF0041changed.png");
+    imageLayer image;
+    
     kinect.setup();
     zoomPercentage = 100;
     imgCurrX = 0;
     imgCurrY = 0;
+    imgCurrWidth = ofGetWidth();
+    imgCurrHeight = ofGetHeight();
 }
 
 //--------------------------------------------------------------
@@ -28,13 +32,8 @@ void testAppLoad::draw()
         int positionX = kinect.position.X;
         int positionZ = kinect.position.Z;
         
-        stringstream msg;
-        msg
-            << "zoom percentage: " << zoomPercentage << endl
-            << "curr pos (X,Y): " << imgCurrX << "," << imgCurrY << endl
-            << "curr size (W,H): " << imgCurrWidth << "," << imgCurrHeight << endl;
         
-        ofDrawBitmapString(msg.str(), ofGetWidth()-250,ofGetHeight()-120);
+        
      
         if(positionZ > 2600)
         {
@@ -93,18 +92,54 @@ void testAppLoad::draw()
     }
     else
     {
+        /*
         cout << "non tracking (" << screenW << "," << screenH << endl;        
         img.draw(0, 0, ofGetWidth(),ofGetHeight());
         imgCurrWidth = screenW;
         imgCurrHeight = screenH;
         imgCurrX = 0;
         imgCurrY = 0;
+         */
+        imgCurrWidth = screenW * zoomPercentage / 100;
+        imgCurrHeight = screenH * zoomPercentage / 100;
+        
+        img.draw(imgCurrX, imgCurrY, imgCurrWidth,imgCurrHeight);
     }
+    stringstream msg;
+    msg
+    << "zoom percentage: " << zoomPercentage << endl
+    << "curr pos (X,Y): " << imgCurrX << "," << imgCurrY << endl
+    << "curr size (W,H): " << imgCurrWidth << "," << imgCurrHeight << endl;
+    ofDrawBitmapString(msg.str(), ofGetWidth()-300,30);
     kinect.draw();
 }
 
 //--------------------------------------------------------------
 void testAppLoad::keyPressed(int key)
 {
-    kinect.keyPressed(key);
+    switch(key)
+    {
+    case OF_KEY_UP:
+        imgCurrY = imgCurrY + 5;
+        break;
+    case OF_KEY_DOWN:
+        imgCurrY = imgCurrY - 5;
+        break;
+    case OF_KEY_LEFT:
+        imgCurrX = imgCurrX + 5;            
+        break;
+    case OF_KEY_RIGHT:
+        imgCurrX = imgCurrX - 5;
+        break;
+    case 'w':
+        zoomPercentage = zoomPercentage + 5;
+            break;    
+        case 'e':
+            zoomPercentage = zoomPercentage - 5;
+            break;    
+
+    default:
+            break;
+    }        
+    //kinect.keyPressed(key);
 }

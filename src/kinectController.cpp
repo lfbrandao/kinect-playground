@@ -18,7 +18,8 @@ void kinectController::setup() {
 	setupRecording();
 
 	ofBackground(0, 0, 0);
-
+    
+    myFont.loadFont("frabk.ttf", 32);
 }
 
 void kinectController::setupRecording(string _filename) {
@@ -128,8 +129,8 @@ void kinectController::draw(){
         tracking = false;
     }
 
-	ofDrawBitmapString(msg.str(), ofGetWidth()-250,ofGetHeight()-190);
-
+    ofSetColor(255, 255, 255);
+	myFont.drawString(msg.str(), 30, 50);
 }
 
 void kinectController:: drawMasks() 
@@ -144,15 +145,16 @@ void kinectController::keyPressed(int key){
 
 	float smooth;
 
-	switch (key) {
+	switch (key) {            
 #ifdef TARGET_OSX // only working on Mac at the moment
-		case 357: // up key
-			hardware.setTiltAngle(hardware.tilt_angle++);
-			break;
-		case 359: // down key
-			hardware.setTiltAngle(hardware.tilt_angle--);
-			break;
+		//case 357: // up key
+			//hardware.setTiltAngle(hardware.tilt_angle++);
+			//break;
+		//case 359: // down key
+			//hardware.setTiltAngle(hardware.tilt_angle--);
+			//break;
 #endif
+                    
 		case 't':
 		case 'T':
 			isTracking = !isTracking;
