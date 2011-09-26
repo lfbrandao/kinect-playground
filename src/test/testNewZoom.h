@@ -25,6 +25,7 @@ public:
     ofImage img;
     
     
+    list<kinectZone> kinectZones;
     list<imageRegion> regionsOfInterest;
     list<imageRegion>::iterator it;
     

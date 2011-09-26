@@ -5,11 +5,17 @@
 class kinectZone
 {
 public:
-    kinectZone(float xStart, float zStart);
+    kinectZone(float xLow, float xHigh, float zLow, float zHigh);
+    void setImageRegion(imageRegion* imgRegion);
+    imageRegion* getImageRegion();
     
+    float getXLow();
+    float getXHigh();
+    float getZLow();
+    float getZHigh();
 private:
-    float xStart, xEnd;
+    float xLow, xHigh;
     float yStart, yEnd;
-    float zStart, zEnd;
+    float zLow, zHigh;
     imageRegion* imgRegion;
 };

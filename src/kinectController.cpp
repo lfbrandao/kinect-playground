@@ -147,12 +147,12 @@ void kinectController::keyPressed(int key){
 
 	switch (key) {            
 #ifdef TARGET_OSX // only working on Mac at the moment
-		//case 357: // up key
-			//hardware.setTiltAngle(hardware.tilt_angle++);
-			//break;
-		//case 359: // down key
-			//hardware.setTiltAngle(hardware.tilt_angle--);
-			//break;
+		case 357: // up key
+			hardware.setTiltAngle(hardware.tilt_angle++);
+			break;
+		case 359: // down key
+			hardware.setTiltAngle(hardware.tilt_angle--);
+			break;
 #endif
                     
 		case 't':

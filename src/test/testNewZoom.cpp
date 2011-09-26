@@ -7,39 +7,76 @@ void testNewZoom::setup()
     
     imageRegion* reg0 = new imageRegion(0,0,ofGetWidth(),ofGetHeight(),100);
     imageRegion* reg1 = new imageRegion(0,-400,200,100,400);
-    imageRegion* reg2 = new imageRegion(0,0,ofGetWidth(),ofGetHeight(),100);
-    imageRegion* reg3 = new imageRegion(-1400,-400,200,100,400);
-    imageRegion* reg4 = new imageRegion(-1800,-400,200,100,400);
-    imageRegion* reg5 = new imageRegion(-2100,-400,200,100,400);
+    imageRegion* reg2 = new imageRegion(-400,-400,200,100,400);
+    imageRegion* reg3 = new imageRegion(-800,-400,200,100,400);
+    imageRegion* reg4 = new imageRegion(-1200,-400,200,100,400);
     
     regionsOfInterest.push_back(*reg0);
     regionsOfInterest.push_back(*reg1);
     regionsOfInterest.push_back(*reg2);
     regionsOfInterest.push_back(*reg3);
     regionsOfInterest.push_back(*reg4);
-    regionsOfInterest.push_back(*reg5);
     
     this->currRegionOfInterest = &regionsOfInterest.front();
     this->visibleRegionOfInterest = new imageRegion(0,0,ofGetWidth(),ofGetHeight(),100);
     
     it = regionsOfInterest.begin();
     
+    // zoom out zone
+    kinectZone* zone1 = new kinectZone(0, 1000, 3000, 3800);
+    zone1->setImageRegion(reg0);
+    kinectZone* zone2 = new kinectZone(133, 233, 0, 2900);
+    zone2->setImageRegion(reg1);
+    kinectZone* zone3 = new kinectZone(284, 384, 0, 2900);    
+    zone3->setImageRegion(reg2);
+    kinectZone* zone4 = new kinectZone(447, 547, 0, 2900);    
+    zone4->setImageRegion(reg3);
+    kinectZone* zone5 = new kinectZone(564, 664, 0, 2900);    
+    zone5->setImageRegion(reg4);
+    
+    kinectZones.push_back(*zone1);
+    kinectZones.push_back(*zone2);
+    kinectZones.push_back(*zone3);
+    kinectZones.push_back(*zone4);
+    kinectZones.push_back(*zone5);
+    
+    
+    // init variables
+
+    this->defaultZoomStep = 5.0;
+    this->defaultMoveStep = 5.0;
+
+    this->zoomStep = defaultZoomStep;
+    this->moveStep = defaultMoveStep;
     
     
     //kinect.setup();
-    
-    // init variables
-    
-    zoomStep = 1.0;
-    moveStep = 1.5;
-    
-    this->defaultZoomStep = 1;
-    this->defaultMoveStep = 1;
 }
 
 //--------------------------------------------------------------
 void testNewZoom::update()
 {
+    /*
+    if(kinect.tracking)
+    {
+        int positionX = kinect.position.X;
+        int positionZ = kinect.position.Z;
+        
+        list<kinectZone>::iterator itImg;
+        
+        for(itImg = kinectZones.begin(); itImg != kinectZones.end(); itImg++)
+        {
+            if( (itImg->getXLow() < positionX) && 
+                (itImg->getXHigh() > positionX) &&
+                (itImg->getZLow() < positionZ) && 
+                (itImg->getZHigh() > positionZ) )
+            {
+                this->changeRegionOfInterest(itImg->getImageRegion());
+                break;
+            }    
+        }
+    }
+    */
     if(currRegionOfInterest != visibleRegionOfInterest)
     {
         float targetX = currRegionOfInterest->getX();
@@ -112,11 +149,13 @@ void testNewZoom::update()
         {
             if(visibleZoom < targetZoom)
             {
-                visibleRegionOfInterest->setZoomPercentage(visibleZoom + zoomStep);
+                visibleZoom = visibleZoom + zoomStep;
+                visibleRegionOfInterest->setZoomPercentage(visibleZoom);
             }
             else
             {
-                visibleRegionOfInterest->setZoomPercentage(visibleZoom - zoomStep);
+                visibleZoom = visibleZoom - zoomStep;
+                visibleRegionOfInterest->setZoomPercentage(visibleZoom);
             }
             
             visibleRegionOfInterest->setWidth(ofGetWidth() * visibleZoom / 100);
@@ -153,6 +192,7 @@ void testNewZoom::draw()
     << " width,height: " << visibleRegionOfInterest->getWidth() << "," 
     << visibleRegionOfInterest->getHeight() << endl;
      */
+    
     //kinect.draw();
 }
 
@@ -173,7 +213,7 @@ void testNewZoom::changeRegionOfInterest(imageRegion* newImageRegion)
     
     float zoomDif = abs(visibleZoom - targetZoom);
 
-    /*
+    
     cout 
     << " targetX " << targetX
     << "; targetY " << targetY
@@ -184,11 +224,11 @@ void testNewZoom::changeRegionOfInterest(imageRegion* newImageRegion)
     << "; diffX " << diffX
     << "; zoomDif " << zoomDif
     << "; diffY" << diffY << endl;
-    */
+    
     
     // reset zoom and move steps
     moveStep = defaultMoveStep;
-    zoomStep = defaultMoveStep;
+    zoomStep = defaultZoomStep;
     
     // if there's no position change: zoom only
     if((diffX == 0) && (diffY == 0))
@@ -216,12 +256,13 @@ void testNewZoom::changeRegionOfInterest(imageRegion* newImageRegion)
     // make moveStep proportional to zoomStep
     if(zoomDif > longestDistance)
     {
-        moveStep = zoomDif / longestDistance;
+        moveStep = (zoomDif / longestDistance) * zoomStep;
     }
     else
     {
-        moveStep = longestDistance / zoomDif;
+        moveStep = (longestDistance / zoomDif) * zoomStep;
     }
+    cout << "zoomStep " << zoomStep << " moveStep " << moveStep << endl;
 }
 
 //--------------------------------------------------------------

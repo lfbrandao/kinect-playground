@@ -119,16 +119,16 @@ void testAppLoad::keyPressed(int key)
 {
     switch(key)
     {
-    case OF_KEY_UP:
+    case 'r':
         imgCurrY = imgCurrY + 5;
         break;
-    case OF_KEY_DOWN:
+    case 'c':
         imgCurrY = imgCurrY - 5;
         break;
-    case OF_KEY_LEFT:
+    case 'd':
         imgCurrX = imgCurrX + 5;            
         break;
-    case OF_KEY_RIGHT:
+    case 'f':
         imgCurrX = imgCurrX - 5;
         break;
     case 'w':
@@ -141,5 +141,5 @@ void testAppLoad::keyPressed(int key)
     default:
             break;
     }        
-    //kinect.keyPressed(key);
+    kinect.keyPressed(key);
 }
