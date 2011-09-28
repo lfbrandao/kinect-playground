@@ -199,5 +199,19 @@
          landmarkName = "testNewZoom::changeRegionOfInterest(imageRegion* newImageRegion)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/kinectController.cpp"
+         timestampString = "338898275.618712"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "kinectController::keyPressed(int key)"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

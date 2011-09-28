@@ -50,13 +50,13 @@ void testNewZoom::setup()
     this->moveStep = defaultMoveStep;
     
     
-    //kinect.setup();
+    kinect.setup();
 }
 
 //--------------------------------------------------------------
 void testNewZoom::update()
 {
-    /*
+    
     if(kinect.tracking)
     {
         int positionX = kinect.position.X;
@@ -76,7 +76,7 @@ void testNewZoom::update()
             }    
         }
     }
-    */
+    
     if(currRegionOfInterest != visibleRegionOfInterest)
     {
         float targetX = currRegionOfInterest->getX();
@@ -163,7 +163,7 @@ void testNewZoom::update()
         }
     }
     
-    //kinect.update();
+    kinect.update();
     
 }
 
@@ -193,7 +193,7 @@ void testNewZoom::draw()
     << visibleRegionOfInterest->getHeight() << endl;
      */
     
-    //kinect.draw();
+    kinect.draw();
 }
 
 void testNewZoom::changeRegionOfInterest(imageRegion* newImageRegion)
@@ -301,5 +301,5 @@ void testNewZoom::keyPressed(int key)
         default:
             break;
     }        
-    //kinect.keyPressed(key);
+    kinect.keyPressed(key);
 }

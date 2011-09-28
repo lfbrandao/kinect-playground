@@ -21,7 +21,7 @@ public:
     
 	void keyPressed  (int key);
     
-    //kinectController kinect;
+    kinectController kinect;
     ofImage img;
     
     
